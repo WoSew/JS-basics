@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+
+	<script type = "text/javascript">
+	
+		function writeRange()
+		{
+			var number1 = document.getElementById("field1").value;
+			var number2 = document.getElementById("field2").value;
+			var string ="";
+			
+			if(number1 < number2)
+			{
+				for (i = number1; i<= number2; i++)
+				{
+					string = string + i + " ";	
+				}
+				document.getElementById("result").innerHTML= string;
+			}
+			else if (number1 > number2)
+			{
+				for (i = number1; i>= number2; i--)
+				{
+					string = string + i + " ";	
+				}
+				document.getElementById("result").innerHTML= string;
+			}
+			else if(number1 == number2)
+			{
+				document.getElementById("result").innerHTML= "Entered numbers are equal";
+			}
+			else 
+			{
+				document.getElementById("result").innerHTML="Invalid input";	
+			}
+		}
+	</script>
+</head>
+<body>
+
+	<input type="text" id="field1" />
+	<input type="text" id="field2" />
+	<input type="submit" value ="Range" onclick="writeRange()" /> 
+
+	<div id="result"></div>
+	
+</body>
+</html>
