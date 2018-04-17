@@ -3,6 +3,7 @@ body
 	background-color: black;
 	color: lightgray;
 	font-size: 24px;
+	font-family: 'Inconsolata';
 }
 
 #container
@@ -59,3 +60,18 @@ body
 	color: white;
 	border: 3px white solid;
 }
+
+.reset
+{
+	color: orange;
+	cursor: pointer;
+	font-size: 48px;
+}
+
+.reset:hover
+{
+	color: white;
+	
+}
+
+

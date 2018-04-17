@@ -3,6 +3,7 @@ password = password.toUpperCase();
 
 var passwordLength = password.length;
 var hiddenPassword = "";
+var numberOfMistakes =0;
 
 for (i=0;i<passwordLength;i++)
 {
@@ -45,13 +46,52 @@ String.prototype.changeCharacter = function (place, character)
 
 function checkLetter(number)
 {
+	var hitLetter = false;
+	
+	
 	for(i=0;i<passwordLength;i++)
 	{
 		if(password.charAt(i) == lettersOfAlphabet[number])
 		{
 			hiddenPassword = hiddenPassword.changeCharacter(i, lettersOfAlphabet[number]);
+			hitLetter = true;
 		}
+	}
+	
+	if(hitLetter == true)
+	{
+		var divName = "letter"+number;
+		
+		document.getElementById(divName).style.background = "#009900";
+		document.getElementById(divName).style.color = "#ccff99";
+		document.getElementById(divName).style.border = "3px solid #006600";
+		document.getElementById(divName).style.cursor = "default";
+		
 		
 		writePassword();
 	}
+	else
+	{
+		var divName = "letter"+number;
+		document.getElementById(divName).style.background = "#cc0033";
+		document.getElementById(divName).style.color = "#ffccff";
+		document.getElementById(divName).style.border = "3px solid #660033";
+		document.getElementById(divName).style.cursor = "default";
+		
+		numberOfMistakes++;
+		var imageName = "img/s"+numberOfMistakes+".jpg";
+		
+		document.getElementById("gallows").innerHTML = '<img src="'+imageName+'"/>';
+	}
+	
+	if(password==hiddenPassword)
+	{
+		document.getElementById("alphabet").innerHTML  = "Tak jest! Podano prawidłowe hasło: "+password+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
+	}
+	if(numberOfMistakes>=9)
+	{	
+		document.getElementById("alphabet").innerHTML  = "Przegrana! Prawidłowe hasło: "+password+'<br /><br /><span class="reset" onclick="location.reload() ">JESZCZE RAZ?</span>';
+		
+	}
+	
 }
