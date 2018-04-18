@@ -1,0 +1,41 @@
+<!DOCTYPE HTML> 
+<html lang="pl">  
+
+<head> 
+	<meta charset="utf-8" /> 
+	<title>Math in JS</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body> 
+
+	<script>
+
+        var pln = 1000;
+        document.write("Income: "+pln+" PLN <br/><br/>")
+
+        //currency conversion
+        var usd = pln / 4.00835701;
+        document.write("Currenct conversion: "+usd+" USD <br/>")
+
+        usd = Math.floor(usd * 100)/100;
+        document.write("Currenct conversion: "+usd+" USD + math floor <br/><br/>")
+
+        //shopping
+        var price = 23.99;
+        document.write("Price: "+price+" USD <br/>")
+
+        var provision = 0.02 * price;
+        document.write("Provision: "+provision+" USD <br/>")
+
+        var provision = Math.ceil(0.02 * price*100)/100;
+        document.write("Provision: "+provision+" USD <br/>") 
+
+        //SALDO
+        usd = usd - price - provision;
+        document.write("SALDO: "+usd+" USD <br/>") 
+
+	</script>
+</body> 
+</html>
