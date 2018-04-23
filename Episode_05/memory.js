@@ -1,5 +1,7 @@
 var cards = ["ciri.png", "geralt.png", "jaskier.png", "jaskier.png", "iorweth.png", "triss.png", "geralt.png", "yen.png", "ciri.png", "triss.png", "yen.png", "iorweth.png"];
 
+cards = shuffle(cards);
+
 var c=[];
 
 for (var i=0; i<12; i++)
@@ -66,6 +68,7 @@ function hideTwoCards(number1, number2)
     if(pairsLeft==0)
     {
         $(".board").html("<h1>You win!<br>Done in "+ turnCounter + " turns</h1>");
+        $(".board").css("color", "#E9B64A");
     }
 
     lockCard = false;
@@ -82,4 +85,26 @@ function hideImageTwoCards(number1, number2)
     $("#c"+number2).removeClass("cardActive");
 
     lockCard = false;
+}
+
+//random location of cards
+function shuffle(array)
+{
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while( 0 != currentIndex)
+    {
+        randomIndex = Math.floor(Math.random()* currentIndex);
+        currentIndex --;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+function resetSketch()
+{
+    
 }
